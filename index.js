@@ -1,9 +1,9 @@
 const https = require('https');
 const fs = require('fs');
 
-const token = '645389251:AAHYK9Q1CUXTNB9zwFtN0YlhisThV9hPNpg';
-const channel = '@logNotifier';
-const file = 'text.txt';
+const token = '';
+const channel = '@';
+const file = '';
 
 fs.watchFile(file, (curr, prev) => {
     fs.open(file, 'r', (err, fd) => {
