@@ -2,7 +2,8 @@ const request = require('request');
 const fs = require('fs');
 
 const token = '';
-const channel = '@';
+const channel = '';
+const username = '';
 const file = '';
 const bufferSize = 2000;
 
@@ -13,13 +14,14 @@ fs.watchFile(file, (curr, prev) => {
         let buffer = Buffer.alloc(bufferSize);
         fs.read(fd, buffer, 0, curr.size - prev.size, prev.size, (err, num) => {
             let msg = buffer.toString('utf8', 0, num);
+            let text = '';
             request.post(
                 `https://slack.com/api/chat.postMessage`, {
                     form: {
-                        "token": "",
-                        "channel":"",
-                        "username": "",
-                        "text": ""
+                        token,
+                        channel,
+                        username,
+                        text
                     }
                 }
             );
